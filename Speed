@@ -1,0 +1,15 @@
+local player = game:GetService("Players").LocalPlayer
+
+local function SpeedHack()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    humanoid.WalkSpeed = 100000000000
+end
+
+SpeedHack()
+
+player.CharacterAdded:Connect(function()
+    task.wait(1)
+    SpeedHack()
+end)
